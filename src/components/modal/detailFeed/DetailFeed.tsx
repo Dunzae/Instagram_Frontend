@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { IFeedData } from "@/utils/types/feed";
 import CommentComponent from "./Comment";
-import ImageSlide from "@/components/home/Feed/ImageSlide";
+import MediaSlide from "@/components/home/Feed/MediaSlide";
 import ProfileImageButton from "@/atoms/button/ProfileImageButton";
 import ProfileImage from "@/assets/images/test/profile.jpg";
 import MoreIcon from "@/assets/images/icons/more.svg";
@@ -34,10 +34,10 @@ function DetailFeedComponent({
 		<div className="flex items-center justify-center">
 			<div className="flex w-full h-full max-w-[calc(100vw-128px)] max-h-[calc(100vh-40px)] rounded-[4px] bg-white">
 				<div className="max-w-[871px] max-h-[871px] basis-[871px] flex-grow flex-shrink bg-black min-h-[450px]  overflow-hidden">
-					<ImageSlide
+					<MediaSlide
 						width="100%"
 						height="100%"
-						images={feed.contents}
+						mediaArray={feed.contents}
 					/>
 				</div>
 				<div className="max-w-[500px] min-w-[405px] flex-shrink-[2] flex flex-col flex-grow bg-white ">

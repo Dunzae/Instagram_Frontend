@@ -8,7 +8,7 @@ import HeartFilledIcon from "@/assets/images/icons/heart_fill.svg?react";
 import MessageIcon from "@/assets/images/icons/message.svg";
 import DirectIcon from "@/assets/images/icons/direct.svg";
 import BookmarkIcon from "@/assets/images/icons/bookmark.svg";
-import ImageSlideComponent from "./ImageSlide";
+import ImageSlideComponent from "./MediaSlide";
 
 interface IFeedComponent {
 	feed: IFeedData;
@@ -57,7 +57,7 @@ function Feed({
 			<ImageSlideComponent
 				width="468px"
 				height="468px"
-				images={feed.contents}
+				mediaArray={feed.contents}
 			/>
 			<div className="w-full">
 				<div className="flex justify-between my-[4px] ml-[-8px]">

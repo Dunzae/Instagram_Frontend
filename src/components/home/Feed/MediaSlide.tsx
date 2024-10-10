@@ -1,13 +1,13 @@
 import { useCallback, useRef, useState } from "react";
 
-interface IImageSlideComponent {
+interface IMediaSlideComponent {
 	width: string;
 	height: string;
-	images: string[];
+	mediaArray: string[];
 }
 
-function ImageSlideComponent({ width, height, images }: IImageSlideComponent) {
-	const lastSlide = images.length;
+function MediaSlideComponent({ width, height, mediaArray }: IMediaSlideComponent) {
+	const lastSlide = mediaArray.length;
 	const sliderRef = useRef<HTMLDivElement>(null);
 	const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -46,15 +46,24 @@ function ImageSlideComponent({ width, height, images }: IImageSlideComponent) {
 				className="flex items-start w-full h-full transition-transform duration-500 "
 				ref={sliderRef}
 			>
-				{images.map((image: string) => (
+				{mediaArray.map((media: string) => (
 					<div
-						key={image}
+						key={media}
 						className="flex-shrink-0 w-full h-full overflow-hidden"
 					>
-						<img
-							src={image}
-							className="object-cover w-full h-full"
-						/>
+						{media.split("/")[1] === "images" &&
+							<img
+								src={import.meta.env.VITE_SERVER_URL + media}
+								className="object-cover w-full h-full"
+							/>}
+						{media.split("/")[1] === "videos" &&
+							<video
+								controls
+								className="object-cover w-full h-full"
+							>
+								<source src={import.meta.env.VITE_SERVER_URL + media} />
+							</video>
+						}
 					</div>
 				))}
 			</div>
@@ -67,7 +76,7 @@ function ImageSlideComponent({ width, height, images }: IImageSlideComponent) {
 				</button>
 			)}
 			<div className="absolute left-0 right-0 bottom-[15px] flex justify-center">
-				{images.map((_1, index: number) => (
+				{mediaArray.map((_1, index: number) => (
 					<div
 						key={index}
 						className={
@@ -84,4 +93,4 @@ function ImageSlideComponent({ width, height, images }: IImageSlideComponent) {
 	);
 }
 
-export default ImageSlideComponent;
+export default MediaSlideComponent;
