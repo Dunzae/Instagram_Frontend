@@ -22,7 +22,7 @@ function Input({
 	}, []);
 
 	return (
-		<div className="relative bg-neutral-50 flex-auto flex flex-row h-9 border gap-2 border-[#dbdbdb] ml-[40px] mr-[40px] mb-[6px]">
+		<div className="relative flex-auto flex flex-row h-9 border gap-2 border-[#dbdbdb] ml-[40px] mr-[40px] mb-[6px]">
 			<input
 				type={useToggleHiding && toggleHiding ? "password" : "text"}
 				onChange={onChange}
