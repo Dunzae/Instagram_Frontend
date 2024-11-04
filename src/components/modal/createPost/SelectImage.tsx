@@ -1,5 +1,4 @@
 import MediaIcon from "@/assets/images/icons/media.svg?react";
-
 interface ISelectImageComponent {
 	fileRef: React.Ref<HTMLInputElement>;
 	onClick: () => void;
