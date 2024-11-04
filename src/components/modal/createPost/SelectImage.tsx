@@ -1,21 +1,18 @@
 import MediaIcon from "@/assets/images/icons/media.svg?react";
-import React, { BaseSyntheticEvent, EventHandler } from "react";
 
 interface ISelectImageComponent {
 	fileRef: React.Ref<HTMLInputElement>;
-	onDrop: (e : React.DragEvent<HTMLDivElement>) => void;
 	onClick: () => void;
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 function SelectImageComponent({
 	fileRef,
-	onDrop,
 	onClick,
 	onChange,
 }: ISelectImageComponent) {
 	return (
-		<div className="w-full h-full justify-center p-[24px] flex flex-col items-center" onDrop={onDrop} onDragOver={(e) => {e.preventDefault(); e.stopPropagation();}}>
+		<div className="w-full h-full justify-center p-[24px] flex flex-col items-center">
 			<span>
 				<MediaIcon />
 			</span>
@@ -25,7 +22,7 @@ function SelectImageComponent({
 			<div className="p-[4px]">
 				<input
 					type="file"
-					accept=".mp4, .avi, .png, .jpg, .jpeg, .mp4"
+					accept=".mp4, .avi, .png, .jpg, .jpeg"
 					multiple
 					ref={fileRef}
 					className="hidden"
